@@ -13,9 +13,10 @@ namespace Grafica
         static void Main(string[] args)
         {
 
-            GameWindow window = new GameWindow(800, 600);
-            Game game = new Game(window);
-            window.Run();
+            using (Game game = new Game())
+            {
+                game.Run(60.0); // Ejecutar el bucle del juego con una tasa de actualización de 60 FPS
+            }
         }
     }
 }
